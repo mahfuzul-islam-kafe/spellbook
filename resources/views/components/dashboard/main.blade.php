@@ -13,6 +13,18 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 
+    {{-- bs 5  --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- DataTables -->
+    <link href="a{{ asset('assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet"
+        type="text/css" />
+    <link href="{{ asset('assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}" rel="stylesheet"
+        type="text/css" />
+
+    <!-- Responsive datatable examples -->
+    <link href="{{ asset('assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}"
+        rel="stylesheet" type="text/css" />
+
     <!-- Bootstrap Css -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
@@ -45,7 +57,7 @@
 
             <div class="page-content">
                 <div class="container-fluid">
-                    
+
                     {{ $slot }}
                 </div>
                 <!-- container-fluid -->
@@ -92,6 +104,17 @@
 
     <!-- App js -->
     <script src="{{ asset('assets/js/app.js') }}"></script>
+
+    <!-- Responsive examples -->
+    <script src="{{ asset('assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"></script>
+
+    <!-- Datatable init js -->
+    <script src="{{ asset('assets/js/pages/datatables.init.js') }}"></script>
+
+    <script src="{{ asset('assets/js/app.js') }}"></script>
+    {{-- bs 5  --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 
