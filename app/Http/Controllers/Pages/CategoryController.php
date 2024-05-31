@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Str;
 class CategoryController extends Controller
 {
+    //main category here 
     public function Categories()
     {
         $categories = Category::all();
@@ -26,5 +27,25 @@ class CategoryController extends Controller
         return redirect()->back();
     }
 
+    //sub category here 
+    public function SubCategory()
+    {
+        return view('pages.sub-category');
+    }
+    //sub category here 
+    public function SubSubCategory()
+    {
+        return view('pages.sub-sub-category');
+    }
+    //sub category here 
+    public function Brand()
+    {
+        return view('pages.brand');
+    }
+    //sub category here 
+    public function Vendor()
+    {
+        return view('pages.vendor');
+    }
 }
 
