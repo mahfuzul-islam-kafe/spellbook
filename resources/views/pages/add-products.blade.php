@@ -31,15 +31,12 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-6">
                                 <x-dashboard.form.text label="Product Name" name='product_name'>
                                 </x-dashboard.form.text>
                             </div>
-                            <div class="col-sm-4">
-                                <x-dashboard.form.text label="Slug" name='slug'>
-                                </x-dashboard.form.text>
-                            </div>
-                            <div class="col-sm-4">
+                            
+                            <div class="col-sm-6">
                                 <x-dashboard.form.text label="SUK" name='suk'>
                                 </x-dashboard.form.text>
                             </div>

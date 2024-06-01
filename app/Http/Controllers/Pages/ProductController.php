@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Pages;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Str;
 
 class ProductController extends Controller
 {
@@ -19,7 +20,7 @@ class ProductController extends Controller
         $data->store = $request->store;
         $data->warehouse = $request->warehouse;
         $data->product_name = $request->product_name;
-        $data->slug = $request->slug;
+        $data->slug = str::slug($request->product_name);
         $data->suk = $request->suk;
         $data->category = $request->category;
         $data->sub_category = $request->sub_category;

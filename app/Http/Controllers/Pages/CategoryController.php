@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 use App\Models\Category;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Str;
 class CategoryController extends Controller
@@ -30,19 +32,46 @@ class CategoryController extends Controller
     //sub category here 
     public function SubCategory()
     {
-        return view('pages.sub-category');
+        $subs = SubCategory::all();
+        return view('pages.sub-category',compact('subs'));
     }
-    //sub category here 
+    public function StoreSubCategory(Request $request){
+        $data = new SubCategory;
+        $data->sub_category = $request->sub_category;
+        $data->sub_category_slug = str::slug($request->sub_category);
+        $data->save();
+        return redirect()->back();
+    }
+    public function DeleteSubCetegory($id){
+        $sub = SubCategory::find($id);
+        $sub->delete();
+        return redirect()->back();
+    }
+    //sub sub category here 
     public function SubSubCategory()
     {
         return view('pages.sub-sub-category');
     }
-    //sub category here 
+    //Brand here 
     public function Brand()
     {
-        return view('pages.brand');
+        $brands = Brand::all();
+        return view('pages.brand',compact('brands'));
     }
-    //sub category here 
+    public function StoreBrand(Request $request){
+        $data = new Brand;
+        $data->brand_title = $request->brand_title;
+        $data->brand_slug = str::slug($request->brand_title);
+        
+        $data->save();
+        return redirect()->back();
+    }
+    public function DeleteBrand($id){
+        $brand = Brand::find($id);
+        $brand->delete();
+        return redirect()->back();
+    }
+    //vandor here 
     public function Vendor()
     {
         return view('pages.vendor');

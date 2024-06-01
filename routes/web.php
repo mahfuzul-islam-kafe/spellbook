@@ -26,10 +26,14 @@ Route::controller(CategoryController::class)->group(function () {
     Route::get('/categories/delete/{id}', 'DeleteCetegory')->name('delete.category');
     //sub-category
     Route::get('/sub-categories', 'SubCategory')->name('sub-categories');
+    Route::post('/sub-categories/store', 'StoreSubCategory')->name('store.sub-categories');
+    Route::get('/sub-categories/delete/{id}', 'DeleteSubCetegory')->name('delete.sub-category');
     //sub-category
     Route::get('/sub-sub-categories', 'SubSubCategory')->name('sub-sub-categories');
     //sub-category
     Route::get('/brands', 'Brand')->name('brands');
+    Route::post('/brands/store', 'StoreBrand')->name('add.brand');
+    Route::get('/brands/delete/{id}', 'DeleteBrand')->name('delete.brand');
     //sub-category
     Route::get('/vendors', 'Vendor')->name('vendors');
 
