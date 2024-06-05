@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Pages;
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Category;
-use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Str;
 class CategoryController extends Controller
@@ -13,12 +12,13 @@ class CategoryController extends Controller
     //main category here 
     public function Categories()
     {
-        $categories = Category::all();
+        $categories = Category::root()->get();
         return view('pages.categories',compact('categories'));
     }
     public function StoreCategory(Request $request){
         $data = new Category;
         $data->category = $request->category;
+        $data->parent_id = $request->parent_id;
         $data->category_slug = str::slug($request->category);
         $data->save();
         return redirect()->back();
@@ -29,29 +29,7 @@ class CategoryController extends Controller
         return redirect()->back();
     }
 
-    //sub category here 
-    public function SubCategory()
-    {
-        $subs = SubCategory::all();
-        return view('pages.sub-category',compact('subs'));
-    }
-    public function StoreSubCategory(Request $request){
-        $data = new SubCategory;
-        $data->sub_category = $request->sub_category;
-        $data->sub_category_slug = str::slug($request->sub_category);
-        $data->save();
-        return redirect()->back();
-    }
-    public function DeleteSubCetegory($id){
-        $sub = SubCategory::find($id);
-        $sub->delete();
-        return redirect()->back();
-    }
-    //sub sub category here 
-    public function SubSubCategory()
-    {
-        return view('pages.sub-sub-category');
-    }
+   
     //Brand here 
     public function Brand()
     {

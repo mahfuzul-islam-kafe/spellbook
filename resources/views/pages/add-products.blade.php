@@ -50,26 +50,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
-                                <div class="mb-3">
-                                    <label class="control-label ">Sub Category <button class="btn text-info"><i class='bx bx-plus-circle'></i>Add Sub Category</button></label>
-                                    <select class="form-control select2" name="sub_category">
-                                        <option>Select</option>
-                                        <option value="test_sub_category_1">test sub category 1</option>
-                                        <option value="test_sub_category_2">test sub category 2</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="mb-3">
-                                    <label class="control-label ">Sub Sub Category <button class="btn text-info"><i class='bx bx-plus-circle'></i>Add Sub Sub Category</button></label>
-                                    <select class="form-control select2" name="sub_sub_category">
-                                        <option>Select</option>
-                                        <option value="test_sub_sub_category_1">test sub sub category 1</option>
-                                        <option value="test_sub_sub_category_2">test sub sub category 2</option>
-                                    </select>
-                                </div>
-                            </div>
+                            
                             <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label class="control-label">Brand <button class="btn text-info"><i
@@ -104,7 +85,7 @@
 
                             <div class="col-sm-6">
                                 <div class="mb-3">
-                                    <label class="control-label">Barcode Symbology</label>
+                                    <label class="control-label mb-4">Barcode Symbology</label>
                                     <select class="form-control select2" name="barcode_symbology">
                                         <option>Select</option>
                                         <option value="test_barcode_symbology_1">test Barcode Symbology 1</option>
@@ -178,31 +159,7 @@
                             <h3 class="card-title mb-3 mt-3"><i class='bx bx-list-plus'></i> Custom Fields</h3>
                             <hr>
 
-                            <div class="col-sm-12">
-                                <div class="mb-3 d-flex gap-5">
-                                    <div class="form-check ">
-                                        <input class="form-check-input" type="checkbox" value="warranties"
-                                            id="warranties" name="warranties">
-                                        <label class="form-check-label" for="warranties">
-                                            Warranties
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="manufacturer"
-                                            id="manufacturer" name="manufacturer">
-                                        <label class="form-check-label" for="manufacturer">
-                                            Manufacturer
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="expiry"
-                                            id="expiry" name="expiry"> 
-                                        <label class="form-check-label" for="expiry">
-                                            Expiry
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
+                            
                             
                             <div class="col-sm-12 row">
                                 <div class="col-sm-4">

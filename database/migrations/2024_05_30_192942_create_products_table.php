@@ -19,8 +19,6 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->string('suk')->nullable();
             $table->string('category')->nullable();
-            $table->string('sub_category')->nullable();
-            $table->string('sub_sub_category')->nullable();
             $table->string('brand')->nullable();
             $table->string('unit')->nullable();
             $table->string('selling_type')->nullable();

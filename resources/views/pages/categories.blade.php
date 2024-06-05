@@ -18,9 +18,9 @@
                         <thead>
                             <tr>
                                 <th>Category name</th>
-                                <th>Category Sulg</th>
+                                <th>Category Sub Category</th>
                                 <th>Product Count</th>
-                                <th>Sub-Category Count</th>
+
                                 <th>Actions</th>
 
                             </tr>
@@ -31,16 +31,30 @@
                             @foreach ($categories as $category)
                                 <tr>
                                     <td>{{ $category->category }}</td>
-                                    <td>{{ $category->category_slug }}</td>
+                                    <td>{{ $category->parent_id }}</td>
                                     <td>{{ $category->product_count }}</td>
-                                    <td>{{ $category->sub_category_count }}</td>
                                     <td>
                                         {{-- <a href="" class="btn btn-warning">edit</a> --}}
                                         <a href="{{ route('delete.category', $category->id) }}"
                                             class="btn btn-danger">delete</a>
                                     </td>
                                 </tr>
+
+                                @foreach ($category->children as $child)
+                                    <tr>
+                                        <td></td>
+                                        <td>{{ $child->category }}</td>
+                                        <td>{{ $child->product_count }}</td>
+
+                                        <td>
+                                            {{-- <a href="" class="btn btn-warning">edit</a> --}}
+                                            <a href="{{ route('delete.category', $child->id) }}"
+                                                class="btn btn-danger">delete</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             @endforeach
+
                         </tbody>
                     </table>
 

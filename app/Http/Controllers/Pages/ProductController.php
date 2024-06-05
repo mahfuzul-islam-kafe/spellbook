@@ -23,8 +23,6 @@ class ProductController extends Controller
         $data->slug = str::slug($request->product_name);
         $data->suk = $request->suk;
         $data->category = $request->category;
-        $data->sub_category = $request->sub_category;
-        $data->sub_sub_category = $request->sub_sub_category;
         $data->brand = $request->brand;
         $data->unit = $request->unit;
         $data->selling_type = $request->selling_type;
