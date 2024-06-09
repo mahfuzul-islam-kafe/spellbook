@@ -8,11 +8,8 @@
                     <p class="card-title-desc">
                         somthings will be here
                     </p>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal"
-                        data-bs-target="#brandadding">
-                        Add Brand
-                    </button>
+                    {{-- modal for brand adding button --}}
+                    @include('pages.modal.brand')
 
                     <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                         <thead>
@@ -27,9 +24,9 @@
                         @foreach ($brands as $brand)
                             <tbody>
                                 <tr>
-                                    <td>{{$brand->brand_title}}</td>
-                                    <td>{{$brand->brand_category}}</td>
-                                    <td>{{$brand->product_count}}</td>
+                                    <td>{{ $brand->brand_title }}</td>
+                                    <td>{{ $brand->brand_category }}</td>
+                                    <td>{{ $brand->product_count }}</td>
                                     <td>
                                         <a href="{{ route('delete.brand', $brand->id) }}"
                                             class="btn btn-danger">delete</a>
@@ -45,7 +42,5 @@
             </div>
         </div> <!-- end col -->
     </div> <!-- end row -->
-    {{-- modal for category adding  --}}
-    @include('pages.modal.modal')
 
 </x-dashboard.admin>

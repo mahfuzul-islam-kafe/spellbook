@@ -30,5 +30,6 @@ Route::controller(CategoryController::class)->group(function () {
     Route::get('/brands/delete/{id}', 'DeleteBrand')->name('delete.brand');
     //vendor
     Route::get('/vendors', 'Vendor')->name('vendors');
-
+    Route::post('/vendor/store', 'StoreVendor')->name('add.vendor');
+    Route::get('/vendor/delete/{id}', 'DeleteVendor')->name('delete.vendor');
 });
