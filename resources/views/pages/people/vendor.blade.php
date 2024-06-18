@@ -8,8 +8,8 @@
                     <p class="card-title-desc">
                         somthings will be here
                     </p>
-                    {{-- modal for category adding  --}}
-  @include('pages.modal.vendor')
+                    {{-- modal for vendor adding  --}}
+                    @include('pages.modal.vendor')
 
                     <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                         <thead>
@@ -23,20 +23,19 @@
                             </tr>
                         </thead>
                         @foreach ($vendors as $vendor)
-                            
-                        <tbody>
-                            <tr>
-                                <td>{{$vendor->vendor_name}}</td>
-                                <td>{{$vendor->product_name}}</td>
-                                <td>{{$vendor->vendor_contact}}</td>
-                                <td>{{$vendor->vendor_type}}</td>
-                                <td>{{$vendor->note}}</td>
-                                <td>
-                                    <a href="{{ route('delete.vendor', $vendor->id) }}"
-                                        class="btn btn-danger">delete</a>
-                                </td>
-                            </tr>
-                        </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>{{ $vendor->vendor_name }}</td>
+                                    <td>{{ $vendor->product_name }}</td>
+                                    <td>{{ $vendor->vendor_contact }}</td>
+                                    <td>{{ $vendor->vendor_type }}</td>
+                                    <td>{{ $vendor->note }}</td>
+                                    <td>
+                                        <a href="{{ route('delete.vendor', $vendor->id) }}"
+                                            class="btn btn-danger">delete</a>
+                                    </td>
+                                </tr>
+                            </tbody>
                         @endforeach
                     </table>
 
@@ -44,6 +43,6 @@
             </div>
         </div> <!-- end col -->
     </div> <!-- end row -->
-    
+
 
 </x-dashboard.admin>

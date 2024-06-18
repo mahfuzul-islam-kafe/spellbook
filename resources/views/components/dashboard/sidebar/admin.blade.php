@@ -8,6 +8,10 @@
     <x-dashboard.sidebar.nav.list label="Category" icon="bx-duplicate">
         <x-dashboard.sidebar.nav.item label="Categories" :href="route('categories')" />
         <x-dashboard.sidebar.nav.item label="Brands" :href="route('brands')" />
+    </x-dashboard.sidebar.nav.list>
+    <x-dashboard.sidebar.nav.list label="Peoples" icon="bx-duplicate">
+        
+        <x-dashboard.sidebar.nav.item label="Stores" :href="route('stores')" />
         <x-dashboard.sidebar.nav.item label="Vendors" :href="route('vendors')" />
     </x-dashboard.sidebar.nav.list>
 </x-dashboard.sidebar.main>

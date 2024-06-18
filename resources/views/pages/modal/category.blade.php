@@ -1,5 +1,5 @@
  <!-- Button trigger modal -->
- <button type="button" class="btn text-info mb-3" data-bs-toggle="modal" data-bs-target="#categoryadding">
+ <button type="button" class="btn text-info " data-bs-toggle="modal" data-bs-target="#categoryadding">
     <i class='bx bx-plus-circle'></i>Add Category
  </button>
  <!--Category adding  Modal -->

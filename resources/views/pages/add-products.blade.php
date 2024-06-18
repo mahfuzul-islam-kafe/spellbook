@@ -1,4 +1,5 @@
 <x-dashboard.admin title='Add Product'>
+
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -7,7 +8,7 @@
                     <h4 class="card-title">Add Product</h4>
                     <p class="card-title-desc">Fill all information below</p>
 
-                    <form action="{{route('store.product')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('store.product') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-sm-6">
@@ -15,16 +16,17 @@
                                     <label class="control-label">Store</label>
                                     <select class="form-control select2" name="store">
                                         <option>Select</option>
-                                        <option value="test_store_1">test store 1</option>
-                                        <option value="test_store_2">test store 2</option>
+                                        @foreach ($stores as $store)
+                                        <option value="{{$store->user_name}}">{{$store->store_name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
-                                    <label class="control-label"  >Warehouse</label>
-                                    <select class="form-control select2" name="warehouse" >
+                                    <label class="control-label">Warehouse</label>
+                                    <select class="form-control select2" name="warehouse">
                                         <option>Select</option>
                                         <option value="test_warehouse_1">test Warehouse 1</option>
                                         <option value="test_warehouse_2">test Warehouse 1</option>
@@ -35,30 +37,39 @@
                                 <x-dashboard.form.text label="Product Name" name='product_name'>
                                 </x-dashboard.form.text>
                             </div>
-                            
+
                             <div class="col-sm-6">
                                 <x-dashboard.form.text label="SUK" name='suk'>
                                 </x-dashboard.form.text>
                             </div>
                             <div class="col-sm-4">
                                 <div class="mb-3">
-                                    <label class="control-label">Category <button class="btn text-info"><i class='bx bx-plus-circle'></i>Add Category</button></label>
+                                    <label class="control-label">Category <a href="{{ route('categories') }}"
+                                            class="btn text-info"><i class='bx bx-plus-circle'></i>Add
+                                            Category</a></label>
                                     <select class="form-control select2" name="category">
-                                        <option>Select</option>
-                                        <option value="test_category_1">test category 1</option>
-                                        <option value="test_category_2">test category 2</option>
+                                        <option value="">Select</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->category_slug }}" class="fw-bold">{{ $category->category }}</option>
+                                            @foreach ($category->children as $child)
+                                            <option value="{{ $child->category_slug }}">{{ $child->category }}</option>
+                                            @endforeach
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
-                            
+
                             <div class="col-sm-4">
                                 <div class="mb-3">
-                                    <label class="control-label">Brand <button class="btn text-info"><i
-                                                class='bx bx-plus-circle'></i>Add Brand</button></label>
+                                    <label class="control-label">Brand <a href="{{ route('brands') }}"
+                                            class="btn text-info"><i class='bx bx-plus-circle'></i>Add Brand</a></label>
                                     <select class="form-control select2" name="brand">
-                                        <option>Select</option>
-                                        <option value="test_brand_1">test brand 1</option>
-                                        <option value="test_brand_2">test brand 2</option>
+                                        <option value="">Select</option>
+                                        
+                                       @foreach ($brands as $brand)
+                                       <option value="{{$brand->brand_slug}}">{{$brand->brand_title}}</option>  
+                                       @endforeach
+                                        
                                     </select>
                                 </div>
                             </div>
@@ -88,14 +99,13 @@
                                     <label class="control-label mb-4">Barcode Symbology</label>
                                     <select class="form-control select2" name="barcode_symbology">
                                         <option>Select</option>
-                                        <option value="test_barcode_symbology_1">test Barcode Symbology 1</option>
-                                        <option value="test_barcode_symbology_2">test Barcode Symbology 2</option>
+                                        <option value="code_34">Code 34</option>
+                                        <option value="code_35">Code 35</option>
+                                        <option value="code_36">Code 36</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
-                                <x-dashboard.form.text label="Item Code" name="item_code"></x-dashboard.form.text>
-                            </div>
+                            
                             <div class="col-sm-12">
                                 <div class="mb-3">
                                     <label for="description">Description</label>
@@ -133,7 +143,7 @@
                                     </select>
                                 </div>
                             </div>
-                            
+
                             <div class="col-sm-4">
                                 <x-dashboard.form.text label="Discount Value" name="discountvalue">
                                 </x-dashboard.form.text>
@@ -159,12 +169,14 @@
                             <h3 class="card-title mb-3 mt-3"><i class='bx bx-list-plus'></i> Custom Fields</h3>
                             <hr>
 
-                            
-                            
+
+
                             <div class="col-sm-12 row">
                                 <div class="col-sm-4">
                                     <div class="mb-3">
-                                        <label class="control-label">Vendor <button class="btn text-info"><i class='bx bx-plus-circle'></i>Add Vendor</button></label>
+                                        <label class="control-label">Vendor <a href="{{ route('vendors') }}"
+                                                class="btn text-info"><i class='bx bx-plus-circle'></i>Add
+                                                Vendor</a></label>
                                         <select class="form-control select2" name="vendor">
                                             <option>Select</option>
                                             <option value="test_vendor_1">test_vendor_1</option>
@@ -180,7 +192,7 @@
                             <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label class="control-label">Manufactured Date</label>
-                                    <input type="date" name="manufactureddate" class="form-control" >
+                                    <input type="date" name="manufactureddate" class="form-control">
                                 </div>
                             </div>
                             <div class="col-sm-4">

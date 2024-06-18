@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Pages\CategoryController;
+use App\Http\Controllers\Pages\PeopleController;
 use App\Http\Controllers\Pages\ProductController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -19,6 +21,7 @@ Route::controller(ProductController::class)->group(function () {
     Route::post('/products/store', 'StoreProduct')->name('store.product');
 });
 //admin controller group starts here
+//Category controller Group here
 Route::controller(CategoryController::class)->group(function () {
     //category
     Route::get('/categories', 'Categories')->name('categories');
@@ -32,4 +35,15 @@ Route::controller(CategoryController::class)->group(function () {
     Route::get('/vendors', 'Vendor')->name('vendors');
     Route::post('/vendor/store', 'StoreVendor')->name('add.vendor');
     Route::get('/vendor/delete/{id}', 'DeleteVendor')->name('delete.vendor');
+});
+
+Route::controller(PeopleController::class)->group(function () {
+    //vendor
+    Route::get('/vendors', 'Vendor')->name('vendors');
+    Route::post('/vendor/store', 'StoreVendor')->name('add.vendor');
+    Route::get('/vendor/delete/{id}', 'DeleteVendor')->name('delete.vendor');
+    //store 
+    Route::get('/stores', 'Store')->name('stores');
+    Route::post('/stores/store', 'StoreStore')->name('add.store');
+    Route::get('/store/delete/{id}', 'DeleteStore')->name('delete.store');
 });

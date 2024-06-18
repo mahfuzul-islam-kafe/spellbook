@@ -41,7 +41,6 @@ class CategoryController extends Controller
         $data = new Brand;
         $data->brand_title = $request->brand_title;
         $data->brand_slug = str::slug($request->brand_title);
-        
         $data->save();
         return redirect()->back();
     }
@@ -50,28 +49,7 @@ class CategoryController extends Controller
         $brand->delete();
         return redirect()->back();
     }
-    //vandor here 
-    public function Vendor()
-    {
-        $vendors = Vendor::all();
-        return view('pages.vendor',compact('vendors'));
-    }
-    public function StoreVendor(Request $request){
-        $data = new Vendor;
-        $data->vendor_name = $request->vendor_name;
-        $data->vendor_slug = str::slug($request->vendor_name);
-        $data->product_name = $request->product_name;
-        $data->vendor_contact = $request->vendor_contact;
-        $data->vendor_type = $request->vendor_type;
-        $data->note = $request->note;
-        $data->save();
-        return redirect()->back();
-    }
-    public function DeleteVendor($id){
-        $data = Vendor::find($id);
-        $data->delete();
-        return redirect()->back();
-    }
+    
 
 }
 

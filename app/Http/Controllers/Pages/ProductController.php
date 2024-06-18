@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Product;
+use App\Models\Store;
+use App\Models\Vendor;
 use Illuminate\Http\Request;
 use Str;
 
@@ -13,7 +17,11 @@ class ProductController extends Controller
         return view('pages.products');
     }
     public function AddProducts(){
-        return view('pages.add-products');
+        $categories = Category::root()->get();
+        $brands = Brand::all();
+        $vendors = Vendor::all();
+        $stores = Store::all();
+        return view('pages.add-products',compact('categories','brands','vendors','stores'));
     }
     public function Storeproduct(Request $request){
         $data = new Product;

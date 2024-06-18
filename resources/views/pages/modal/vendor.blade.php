@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn text-info mb-3" data-bs-toggle="modal" data-bs-target="#vendoradding">
+<button type="button" class="btn text-info " data-bs-toggle="modal" data-bs-target="#vendoradding">
     <i class='bx bx-plus-circle'></i>Add Vandor
 </button>
 <!--vendir adding  Modal -->
