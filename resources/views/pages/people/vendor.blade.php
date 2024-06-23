@@ -31,6 +31,8 @@
                                     <td>{{ $vendor->vendor_type }}</td>
                                     <td>{{ $vendor->note }}</td>
                                     <td>
+                                        <a href="{{ route('edit.vendor', $vendor->id) }}"
+                                            class="btn btn-warning">Edit</a>
                                         <a href="{{ route('delete.vendor', $vendor->id) }}"
                                             class="btn btn-danger">delete</a>
                                     </td>

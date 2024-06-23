@@ -4,7 +4,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    <h4 class="card-title">Stpre Datatable</h4>
+                    <h4 class="card-title">Store Datatable</h4>
                     <p class="card-title-desc">
                         somthings will be here
                     </p>
@@ -25,7 +25,7 @@
 
                         <tbody>
 
-                            @foreach ($stores as $store)
+                            {{-- @foreach ($stores as $store)
                                 <tr>
                                     <td>{{ $store->store_name }}</td>
                                     <td>{{ $store->user_name }}</td>
@@ -34,11 +34,13 @@
                                     <td class="{{ $store->status == 'inactive' ? 'text-danger' : 'text-success' }}">
                                         {{ $store->status }}</td>
                                     <td>
+                                        <a href="{{ route('edit.store', $store->id) }}"
+                                            class="btn btn-warning">Edit</a>
                                         <a href="{{ route('delete.store', $store->id) }}"
-                                            class="btn btn-danger">delete</a>
+                                            class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
-                            @endforeach
+                            @endforeach --}}
                         </tbody>
 
                     </table>

@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('stores', function (Blueprint $table) {
+        Schema::create('warehouses', function (Blueprint $table) {
             $table->id();
-            $table->string('store_name')->nullable();
-            $table->string('user_name')->nullable();
+            $table->string('warehouse')->nullable();
+            $table->string('contact_person')->nullable();
             $table->string('phone')->nullable();
-            $table->string('email')->nullable();
+            $table->string('total_products')->nullable();
+            $table->string('stock')->nullable();
+            $table->string('quantity')->nullable();
             $table->enum('status',['active','inactive',])->default('active');
             $table->timestamps();
         });
@@ -27,6 +29,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('stores');
+        Schema::dropIfExists('warehouses');
     }
 };
+//Warehouse	Contact Person	Phone	Total Products	Stock	Qty	Created On	Status	Action

@@ -28,8 +28,10 @@
                                     <td>{{ $brand->brand_category }}</td>
                                     <td>{{ $brand->product_count }}</td>
                                     <td>
+                                        <a href="{{ route('edit.brand', $brand->id) }}"
+                                            class="btn btn-warning">Edit</a>
                                         <a href="{{ route('delete.brand', $brand->id) }}"
-                                            class="btn btn-danger">delete</a>
+                                            class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                             </tbody>

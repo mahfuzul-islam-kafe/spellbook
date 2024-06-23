@@ -31,7 +31,7 @@
                                     <td>{{ $category->parent_id }}</td>
                                     <td>{{ $category->product_count }}</td>
                                     <td>
-                                        {{-- <a href="" class="btn btn-warning">edit</a> --}}
+                                        <a href="{{ route('edit.category', $category->id) }}" class="btn btn-warning">edit</a>
                                         <a href="{{ route('delete.category', $category->id) }}"
                                             class="btn btn-danger">delete</a>
                                     </td>
@@ -44,7 +44,7 @@
                                         <td>{{ $child->product_count }}</td>
 
                                         <td>
-                                            {{-- <a href="" class="btn btn-warning">edit</a> --}}
+                                            <a href="{{ route('edit.category', $child->id) }}" class="btn btn-warning">edit</a>
                                             <a href="{{ route('delete.category', $child->id) }}"
                                                 class="btn btn-danger">delete</a>
                                         </td>

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
-            $table->string('brand_title');
+            $table->string('brand_title')->nullable();
             $table->string('brand_slug');
             $table->string('brand_category')->default(0);
             $table->string('product_count')->default(0);

@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('store')->nullable();
             $table->string('warehouse')->nullable();
             $table->string('product_name')->nullable();
-            $table->string('slug')->nullable();
-            $table->string('suk')->nullable();
+            $table->string('slug');
+            $table->string('sku')->nullable();
             $table->string('category')->nullable();
             $table->string('brand')->nullable();
             $table->string('unit')->nullable();

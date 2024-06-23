@@ -39,7 +39,7 @@
                             </div>
 
                             <div class="col-sm-6">
-                                <x-dashboard.form.text label="SUK" name='suk'>
+                                <x-dashboard.form.text label="SKU" name='sku'>
                                 </x-dashboard.form.text>
                             </div>
                             <div class="col-sm-4">

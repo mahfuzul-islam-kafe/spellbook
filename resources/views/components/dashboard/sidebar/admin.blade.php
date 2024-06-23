@@ -12,6 +12,7 @@
     <x-dashboard.sidebar.nav.list label="Peoples" icon="bx-duplicate">
         
         <x-dashboard.sidebar.nav.item label="Stores" :href="route('stores')" />
+        <x-dashboard.sidebar.nav.item label="Warehouse" :href="route('warehouse')" />
         <x-dashboard.sidebar.nav.item label="Vendors" :href="route('vendors')" />
     </x-dashboard.sidebar.nav.list>
 </x-dashboard.sidebar.main>

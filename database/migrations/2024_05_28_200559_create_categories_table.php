@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('category');
+            $table->string('category')->nullable();
             $table->string('category_slug');
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->integer('product_count')->default(0);

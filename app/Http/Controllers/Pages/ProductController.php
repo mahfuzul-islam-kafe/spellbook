@@ -29,7 +29,7 @@ class ProductController extends Controller
         $data->warehouse = $request->warehouse;
         $data->product_name = $request->product_name;
         $data->slug = str::slug($request->product_name);
-        $data->suk = $request->suk;
+        $data->sku = $request->sku;
         $data->category = $request->category;
         $data->brand = $request->brand;
         $data->unit = $request->unit;
