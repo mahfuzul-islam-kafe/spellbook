@@ -1,9 +1,3 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn text-info " data-bs-toggle="modal" data-bs-target="#brandadding">
-    <i class='bx bx-plus-circle'></i>Add Brand
-</button>
-
-
 
 <!--brand adding  Modal -->
 <div class="modal fade" id="brandadding" tabindex="-1" aria-labelledby="brandaddingLabel" aria-hidden="true">

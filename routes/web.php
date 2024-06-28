@@ -19,6 +19,8 @@ Route::controller(ProductController::class)->group(function () {
     Route::get('/products', 'Products')->name('products');
     Route::get('/products/add', 'AddProducts')->name('add.products');
     Route::post('/products/store', 'StoreProduct')->name('store.product');
+    Route::get('/test', 'Test')->name('test');
+
 });
 //admin controller group starts here
 //Category controller Group here

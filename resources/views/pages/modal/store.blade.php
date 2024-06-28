@@ -1,7 +1,3 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn text-info " data-bs-toggle="modal" data-bs-target="#storeadding">
-    <i class='bx bx-plus-circle'></i>Add Store
-</button>
 
 
 

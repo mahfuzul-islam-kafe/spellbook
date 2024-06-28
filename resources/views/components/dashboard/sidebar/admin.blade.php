@@ -15,4 +15,8 @@
         <x-dashboard.sidebar.nav.item label="Warehouse" :href="route('warehouse')" />
         <x-dashboard.sidebar.nav.item label="Vendors" :href="route('vendors')" />
     </x-dashboard.sidebar.nav.list>
+    <x-dashboard.sidebar.nav.list label="Test" icon="bx-duplicate">
+        
+        <x-dashboard.sidebar.nav.item label="Test" :href="route('test')" />
+    </x-dashboard.sidebar.nav.list>
 </x-dashboard.sidebar.main>

@@ -8,23 +8,47 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Store;
 use App\Models\Vendor;
+use App\Models\Warehouse;
 use Illuminate\Http\Request;
 use Str;
 
 class ProductController extends Controller
 {
-    public function Products(){
+    //test
+
+    public function Test()
+    {
+        return view('pages.test');
+    }
+    public function Products()
+    {
         return view('pages.products');
     }
-    public function AddProducts(){
+    public function AddProducts()
+    {
         $categories = Category::root()->get();
         $brands = Brand::all();
         $vendors = Vendor::all();
         $stores = Store::all();
-        return view('pages.add-products',compact('categories','brands','vendors','stores'));
+        $warehouses = Warehouse::all();
+
+        return view('pages.add-products', compact('categories', 'brands', 'vendors', 'stores', 'warehouses', ));
     }
-    public function Storeproduct(Request $request){
+    public function Storeproduct(Request $request)
+    {
+       
         $data = new Product;
+        
+        $images = [];
+       
+        if ($request->hasFile('images')) {
+            foreach ($request->images as $image) {
+                $images[] = $image->store('images', 'public');
+                $data->image = json_encode($images) ;
+            }
+        }
+        // dd(json_decode(json_encode($images)));
+
         $data->store = $request->store;
         $data->warehouse = $request->warehouse;
         $data->product_name = $request->product_name;
@@ -43,7 +67,11 @@ class ProductController extends Controller
         $data->discount_type = $request->discount_type;
         $data->discountvalue = $request->discountvalue;
         $data->quantityalert = $request->quantityalert;
-        $data->image = $request->image;
+        // if ($request->hasFile('images')) {
+        //     $filePath = $request->file('image')->store('images', 'public');
+        //     $data->image = $filePath;
+        // }
+
         $data->vendor = $request->vendor;
         $data->manufactureddate = $request->manufactureddate;
         $data->expiryon = $request->expiryon;

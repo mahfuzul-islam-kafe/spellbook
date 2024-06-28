@@ -9,6 +9,8 @@
                         somthings will be here
                     </p>
                     {{-- modal for category adding  --}}
+                    <x-dashboard.form.model_triggering label="Add Category"
+                    target="categoryadding"></x-dashboard>
                     @include('pages.modal.category')
 
                     <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">

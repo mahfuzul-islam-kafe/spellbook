@@ -1,4 +1,4 @@
-<x-dashboard.admin title="Product">
+<x-dashboard.admin title="Test">
 
     <div class="row">
         <div class="col-12">
@@ -14,15 +14,16 @@
                             <table id="tech-companies-1" class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Product Name</th>
-                                        <th>SKU</th>
-                                        <th>Category</th>
-                                        <th>Brand</th>
-                                        <th>Price</th>
-                                        <th>Qty</th>
-                                        <th>Price</th>
+                                        <th>Company</th>
+                                        <th data-priority="1">Last Trade</th>
+                                        <th data-priority="3">Trade Time</th>
+                                        <th data-priority="1">Change</th>
+                                        <th data-priority="3">Prev Close</th>
+                                        <th data-priority="3">Open</th>
+                                        <th data-priority="6">Bid</th>
+                                        <th data-priority="6">Ask</th>
+                                        <th data-priority="6">1y Target Est</th>
                                     </tr>
-
                                 </thead>
                                 <tbody>
                                     <tr>

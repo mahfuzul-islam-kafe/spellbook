@@ -9,6 +9,8 @@
                         somthings will be here
                     </p>
                     {{-- modal for vendor adding  --}}
+                    <x-dashboard.form.model_triggering label="Add Vendor"
+                    target="vendoradding"></x-dashboard>
                     @include('pages.modal.vendor')
 
                     <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">

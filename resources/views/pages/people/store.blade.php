@@ -9,6 +9,8 @@
                         somthings will be here
                     </p>
                     {{-- modal for category adding  --}}
+                    <x-dashboard.form.model_triggering label="Add Store"
+                    target="storeadding"></x-dashboard>
                     @include('pages.modal.store')
 
                     <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
@@ -25,7 +27,7 @@
 
                         <tbody>
 
-                            {{-- @foreach ($stores as $store)
+                            @foreach ($stores as $store)
                                 <tr>
                                     <td>{{ $store->store_name }}</td>
                                     <td>{{ $store->user_name }}</td>
@@ -40,7 +42,7 @@
                                             class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
-                            @endforeach --}}
+                            @endforeach
                         </tbody>
 
                     </table>

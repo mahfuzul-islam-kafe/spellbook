@@ -1,16 +1,11 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn text-info " data-bs-toggle="modal" data-bs-target="#storeadding">
-    <i class='bx bx-plus-circle'></i>Add Warehouse
-</button>
-
 
 
 <!--Store adding  Modal -->
-<div class="modal fade" id="storeadding" tabindex="-1" aria-labelledby="storeaddingLabel" aria-hidden="true">
+<div class="modal fade" id="warehouseadding" tabindex="-1" aria-labelledby="warehouseaddingLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="storeaddingLabel">Add A New Srore</h1>
+                <h1 class="modal-title fs-5" id="warehouseaddingLabel">Add A New Warehouse</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

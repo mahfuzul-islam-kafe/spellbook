@@ -5,6 +5,9 @@
             <div class="card">
                 <div class="card-body">
 
+
+                    {{-- <img src="{{ Storage::url($image->image) }}" width="300"> --}}
+
                     <h4 class="card-title">Add Product</h4>
                     <p class="card-title-desc">Fill all information below</p>
 
@@ -14,22 +17,29 @@
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="control-label">Store</label>
-                                    <select class="form-control select2" name="store">
-                                        <option>Select</option>
-                                        @foreach ($stores as $store)
-                                        <option value="{{$store->user_name}}">{{$store->store_name}}</option>
-                                        @endforeach
-                                    </select>
+                                    <x-dashboard.form.model_triggering label="Add Store"
+                                        target="storeadding"></x-dashboard>
+                                        <select class="form-control select2" name="store">
+                                            <option value="">Select</option>
+                                            @foreach ($stores as $store)
+                                                <option value="{{ $store->user_name }}">{{ $store->store_name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                 </div>
 
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label class="control-label">Warehouse</label>
+                                     <x-dashboard.form.model_triggering label="Add Warehouse"
+                                     target="warehouseadding"></x-dashboard>
                                     <select class="form-control select2" name="warehouse">
-                                        <option>Select</option>
-                                        <option value="test_warehouse_1">test Warehouse 1</option>
-                                        <option value="test_warehouse_2">test Warehouse 1</option>
+                                        <option value="">Select</option>
+                                        @foreach ($warehouses as $warehouse)
+                                            <option value="{{ $warehouse->warehouse }}">{{ $warehouse->warehouse }}
+                                            </option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -44,51 +54,59 @@
                             </div>
                             <div class="col-sm-4">
                                 <div class="mb-3">
-                                    <label class="control-label">Category <a href="{{ route('categories') }}"
-                                            class="btn text-info"><i class='bx bx-plus-circle'></i>Add
-                                            Category</a></label>
-                                    <select class="form-control select2" name="category">
-                                        <option value="">Select</option>
-                                        @foreach ($categories as $category)
-                                            <option value="{{ $category->category_slug }}" class="fw-bold">{{ $category->category }}</option>
-                                            @foreach ($category->children as $child)
-                                            <option value="{{ $child->category_slug }}">{{ $child->category }}</option>
+                                    {{-- modal for category adding  --}}
+
+                                    <label class="control-label">Category </label>
+                                    <x-dashboard.form.model_triggering label="Add Category"
+                                        target="categoryadding"></x-dashboard>
+                                        {{-- @include('pages.modal.category') --}}
+                                        <select class="form-control select2" name="category">
+                                            <option value="">Select</option>
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}" class="fw-bold">
+                                                    {{ $category->category }}</option>
+                                                @foreach ($category->children as $child)
+                                                    <option value="{{ $child->id }}">{{ $child->category }}
+                                                    </option>
+                                                @endforeach
                                             @endforeach
-                                        @endforeach
-                                    </select>
+                                        </select>
                                 </div>
                             </div>
 
                             <div class="col-sm-4">
                                 <div class="mb-3">
-                                    <label class="control-label">Brand <a href="{{ route('brands') }}"
-                                            class="btn text-info"><i class='bx bx-plus-circle'></i>Add Brand</a></label>
-                                    <select class="form-control select2" name="brand">
-                                        <option value="">Select</option>
-                                        
-                                       @foreach ($brands as $brand)
-                                       <option value="{{$brand->brand_slug}}">{{$brand->brand_title}}</option>  
-                                       @endforeach
-                                        
-                                    </select>
+                                    <label class="control-label">Brand </label>
+                                    <x-dashboard.form.model_triggering label="Add Brand"
+                                        target="brandadding"></x-dashboard>
+
+                                        <select class="form-control select2" name="brand">
+                                            <option value="">Select</option>
+
+                                            @foreach ($brands as $brand)
+                                                <option value="{{ $brand->brand_slug }}">{{ $brand->brand_title }}
+                                                </option>
+                                            @endforeach
+
+                                        </select>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="mb-3">
-                                    <label class="control-label mb-4">Unit</label>
+                                    <label class="control-label mb-3">Unit</label>
                                     <select class="form-control select2" name="unit">
                                         <option>Select</option>
-                                        <option value="kg">KG</option>
+                                        <option value="kg" selected>KG</option>
                                         <option value="pc">PC</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="mb-3">
-                                    <label class="control-label mb-4">Selling Type</label>
+                                    <label class="control-label mb-3">Selling Type</label>
                                     <select class="form-control select2" name="selling_type">
                                         <option>Select</option>
-                                        <option value="transactional">Transactional selling</option>
+                                        <option value="transactional" selected>Transactional selling</option>
                                         <option value="solution">Solution selling</option>
                                     </select>
                                 </div>
@@ -96,16 +114,16 @@
 
                             <div class="col-sm-6">
                                 <div class="mb-3">
-                                    <label class="control-label mb-4">Barcode Symbology</label>
+                                    <label class="control-label mb-3">Barcode Symbology</label>
                                     <select class="form-control select2" name="barcode_symbology">
-                                        <option>Select</option>
+                                        <option value="">Select</option>
                                         <option value="code_34">Code 34</option>
                                         <option value="code_35">Code 35</option>
                                         <option value="code_36">Code 36</option>
                                     </select>
                                 </div>
                             </div>
-                            
+
                             <div class="col-sm-12">
                                 <div class="mb-3">
                                     <label for="description">Description</label>
@@ -155,16 +173,16 @@
                             <div class="image-group row">
                                 <div class="col-sm-2">
                                     <div class="mb-3">
-                                        <label class="control-label"><i class='bx bx-plus-circle'></i> Add
-                                            Image</label>
-                                        <input type="file" class="form-control" name="image">
+                                        <label class="control-label"><i class='bx bx-plus-circle'></i> Add Image</label>
+                                        <input type="file" class="form-control" name="images[]" multiple onchange="previewImages(event)">
                                     </div>
                                 </div>
-                                <div class="col-sm-2 mb-3">
-                                    <img src="{{ asset('upload/default.png') }}" alt=""
-                                        class="rounded mx-auto d-block">
+                                <div class="col-sm-3 mb-3" id="imagePreview">
+                                    <img src="{{ asset('upload/default.png') }}" alt="" class="rounded mx-auto d-block">
                                 </div>
                             </div>
+                            
+                            
                             {{-- this here mark the start of Custom Fields  --}}
                             <h3 class="card-title mb-3 mt-3"><i class='bx bx-list-plus'></i> Custom Fields</h3>
                             <hr>
@@ -174,14 +192,15 @@
                             <div class="col-sm-12 row">
                                 <div class="col-sm-4">
                                     <div class="mb-3">
-                                        <label class="control-label">Vendor <a href="{{ route('vendors') }}"
-                                                class="btn text-info"><i class='bx bx-plus-circle'></i>Add
-                                                Vendor</a></label>
-                                        <select class="form-control select2" name="vendor">
-                                            <option>Select</option>
-                                            <option value="test_vendor_1">test_vendor_1</option>
-                                            <option value="test_vendor_2">test_vendor_2</option>
-                                        </select>
+                                        <label class="control-label">Vendor</label>
+                                        <x-dashboard.form.model_triggering label="Add Vendor"
+                                            target="vendoradding"></x-dashboard>
+                                            <select class="form-control select2 mt-2" name="vendor">
+                                                <option value="">Select</option>
+                                                @foreach ($vendors as $vendor)
+                                                    {{ $vendor->vendor_name }}
+                                                @endforeach
+                                            </select>
                                     </div>
                                 </div>
                             </div>
@@ -201,12 +220,6 @@
                                     <input type="date" name="expiryon" class="form-control">
                                 </div>
                             </div>
-
-
-
-
-
-
                         </div>
 
                         <div class="d-flex flex-wrap gap-2">
@@ -214,10 +227,38 @@
                                 Product</button>
                         </div>
                     </form>
-
+                    @include('pages.modal.category')
+                    @include('pages.modal.brand')
+                    @include('pages.modal.vendor')
+                    @include('pages.modal.store')
+                    @include('pages.modal.warehouse')
                 </div>
             </div>
         </div>
     </div>
-
+    <script>
+        function previewImages(event) {
+            var files = event.target.files;
+            var previewContainer = document.getElementById('imagePreview');
+            previewContainer.innerHTML = '';
+            var rowDiv = document.createElement('div');
+            rowDiv.className = 'row';
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var colDiv = document.createElement('div');
+                    colDiv.className = 'col-3'; // Adjust the number to control the width of each image
+                    var img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.className = 'rounded img-fluid'; // Use img-fluid to make sure the images are responsive
+                    img.style.margin = '10px';
+                    colDiv.appendChild(img);
+                    rowDiv.appendChild(colDiv);
+                };
+                reader.readAsDataURL(file);
+            }
+            previewContainer.appendChild(rowDiv);
+        }
+    </script>
 </x-dashboard.admin>

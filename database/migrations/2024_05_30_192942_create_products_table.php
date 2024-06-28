@@ -15,13 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('store')->nullable();
             $table->string('warehouse')->nullable();
-            $table->string('product_name')->nullable();
+            $table->string('product_name');
             $table->string('slug');
             $table->string('sku')->nullable();
             $table->string('category')->nullable();
             $table->string('brand')->nullable();
-            $table->string('unit')->nullable();
-            $table->string('selling_type')->nullable();
+            $table->enum('unit',['kg','pc',])->default('kg');
+            $table->enum('selling_type',['transactional','solution',])->default('transactional');
             $table->string('barcode_symbology')->nullable();
             $table->string('item_code')->nullable();
             $table->string('description')->nullable();
@@ -47,3 +47,4 @@ return new class extends Migration
         Schema::dropIfExists('products');
     }
 };
+//$table->enum('status',['active','inactive',])->default('active');
